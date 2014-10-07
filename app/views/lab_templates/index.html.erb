@@ -1,0 +1,17 @@
+<h1>Lab Template</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+  </tr>
+<% @lab_templates.each do | f | %>
+<tr>
+  <td><%= f.name %></td>
+  <td><%= link_to "Show", f %></td>
+  <td><%= link_to "Destroy", f, method: "delete" %></td>
+</tr>
+<% end %>
+
+<%= link_to "New Lab Template", new_lab_template_path %>
