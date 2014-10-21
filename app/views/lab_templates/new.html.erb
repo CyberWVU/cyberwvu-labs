@@ -1,10 +1,13 @@
+<div class="page-header">
 <h1>New Template</h1>
+</div>
 <%= form_for @lab_template do | f | %>
 <%= f.label :name %>
-<br/>
 <%= f.text_field :name %>
-<br/>
-<%= f.submit %>
+<div class="form-actions">
+<%= f.submit nil, :class => 'btn btn-primary' %>
+<%= link_to "Back", lab_templates_path, class: 'btn' %>
+</div>
 <% end %>
 
-<%= link_to "Back", lab_templates_path %>
+
