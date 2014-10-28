@@ -3,13 +3,29 @@
 </div>
 
 <% @lab_template.questions.each_with_index do | question, i | %>
-<p><%= i+1 %>. <%= question.name %></p>
+<div class="row-fluid">
+  <div class="span9"> 
+    <div class="row-fluid question-divider">
+      <div class="span1">
+	<h5 style="margin: 0"><%= i+1 %>.</h5>
+      </div>
+      <div class="span10">
+	<p>
+	  <%= question.name %>
+	</p>
+      </div> 
+      <div class="span1">
+	<%= link_to "Delete", lab_template_question_path(@lab_template, question), method: "delete", class: 'btn btn-mini btn-danger' %>
+      </div>
+    </div>
+  </div>
+</div>
 <% end %>
-
+<br>
 <%= form_for([@lab_template, @lab_template.questions.build]) do | f | %>
 <%= f.text_area :name %>
+<br>
 <%= f.submit nil, class: 'btn btn-primary' %>
-<% end %>
-
 <%= link_to "Back", lab_templates_path, class: 'btn' %>
+<% end %>
 
