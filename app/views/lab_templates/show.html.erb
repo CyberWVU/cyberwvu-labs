@@ -3,6 +3,7 @@
 </div>
 
 <% @lab_template.questions.each_with_index do | question, i | %>
+
 <p><%= i+1 %>. <%= question.name %>
 
   <div class='offset7'>
@@ -12,12 +13,13 @@
   <p>_____________________________________________________</p>
 </p>
 </br>
-<% end %>
 
+<% end %>
+<br>
 <%= form_for([@lab_template, @lab_template.questions.build]) do | f | %>
 <%= f.text_area :name %>
+<br>
 <%= f.submit nil, class: 'btn btn-primary' %>
-<% end %>
-
 <%= link_to "Back", lab_templates_path, class: 'btn' %>
+<% end %>
 

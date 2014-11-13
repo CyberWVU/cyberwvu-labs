@@ -11,6 +11,14 @@ class QuestionsController < ApplicationController
     @question = @lab_template.questions.find(params[:id])
   end
 
+
+  def destroy
+    @lab_template = LabTemplate.find(params[:lab_template_id])    
+    @question = Question.find(params[:id])
+    @question.destroy
+    redirect_to @lab_template
+  end
+
 private
   def question_params
      params.require(:question).permit(:name)
