@@ -5,6 +5,12 @@ class QuestionsController < ApplicationController
     redirect_to @lab_template
   end
 
+  def edit
+    logger.debug params
+    @lab_template = LabTemplate.find(params[:lab_template_id])
+    @question = @lab_template.questions.find(params[:id])
+  end
+
 private
   def question_params
      params.require(:question).permit(:name)

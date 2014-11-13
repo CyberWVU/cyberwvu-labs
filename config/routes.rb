@@ -1,4 +1,6 @@
 CyberwvuLabs::Application.routes.draw do
+  devise_for :users
+
   get "questions/create"
   get "home/index"
 	root 'home#index'

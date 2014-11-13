@@ -13,6 +13,30 @@
       <ul class="nav">
 	<li class="<%= if_active 'home' %>"><%= link_to "Home", root_path %></li>
 	<li class="<%= if_active 'lab_templates' %>"><%= link_to "Labs", lab_templates_path %></li>
+
+
+<!-- new stuff starts here -->
+
+	<% if user_signed_in? %>
+	<li id="fat-menu" class="dropdown">
+	  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Account <b class="caret"></b>
+	  </a>
+	  <ul class="dropdown-menu">
+            <li><%= link_to "Edit User", edit_user_registration_path %></li>
+            <li class="divider"></li>
+            <li>
+              <%= link_to "Logout", destroy_user_session_path, :method => :delete %>
+            </li>
+	  </ul>
+	</li>
+
+	<% else %>
+	<li><%= link_to "Sign in", new_user_session_path %></li>
+	<% end %>
+
+<!-- new stuff ends here -->
+
 	<li><a href="#">Link</a></li>
       </ul>
     </div>
@@ -20,6 +44,15 @@
 
   <div class="row-fluid body-content"> 
     <div class="span10">
+
+      <% if notice %>
+      <p class="alert alert-success"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+      <% end %>
+
+
     <%= yield %>
     </div>
   </div>
