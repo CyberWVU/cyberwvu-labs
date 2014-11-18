@@ -1,5 +1,5 @@
 <div class="page-header">
-<h1>Lab Template</h1>
+<h1>Lab Templates</h1>
 </div>
 <table class="table table-striped">
   <thead>
@@ -20,4 +20,6 @@
   </tbody>
 </table>
 
+<% if current_user.admin? %>
 <%= link_to "New Lab Template", new_lab_template_path, class: 'btn btn-primary' %>
+<% end %>
