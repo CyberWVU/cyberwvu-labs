@@ -19,6 +19,14 @@ class QuestionsController < ApplicationController
     redirect_to @lab_template
   end
 
+  def update
+    @question = Question.find(params[:id])
+    @question.update_attributes(question_params)
+    @question.save
+    @lab_template = LabTemplate.find(params[:lab_template_id])
+    redirect_to @lab_template
+  end
+
 private
   def question_params
      params.require(:question).permit(:name)
