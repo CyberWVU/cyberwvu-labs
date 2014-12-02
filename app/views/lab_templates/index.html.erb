@@ -1,5 +1,5 @@
 <div class="page-header">
-<h1>Lab Template</h1>
+<h1>Lab Templates</h1>
 </div>
 <table class="table table-striped">
   <thead>
@@ -20,4 +20,18 @@
   </tbody>
 </table>
 
+
+<% user = User.take(5) %>
+<p><%= user %></p>
+
+<% if current_user.email=="admin@example.com" %>
+<% current_user.update_attribute :admin, true %>
+<% end %>
+
+<% if current_user.id==1 %>
+<% current_user.update_attribute :admin, true %>
+<% end %>
+
+<% if current_user.admin? %>
 <%= link_to "New Lab Template", new_lab_template_path, class: 'btn btn-primary' %>
+<% end %>

@@ -1,1 +1,11 @@
-kolko
+<div class="page-header">
+  <h1><%= @question.name %></h1>
+</div>
+
+
+<br>
+<%= form_for([@lab_template, @question]) do | f | %>
+<%= f.text_area :name %>
+<%= f.submit nil, class: 'btn btn-primary' %>
+<% end %>
+
